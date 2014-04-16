@@ -5,8 +5,7 @@
 *	The zone can be deleted by reselecting the option.
 *	Players who leave the zone area lose god mode immediately.
 *	If the zone is deleted, all players inside the zone will lose the god mode. INCLUDING THE ADMIN.
-*	If godmode is enable for the admin (using adminMode) you will lose god mode when leaving the safezone
-*		for anywhere from 1 second to an entire minute!
+*	If godmode is enable for the admin (using adminMode) you will lose god mode when leaving the safezone!
 */
 
 if (isNil "areaGodMode") then {areaGodMode = true;} else {areaGodMode = !areaGodMode;};
