@@ -16,23 +16,23 @@ if (isNil "modMode") then {modMode = true;}else{modMode = !modMode;};
 
 godModeToggle = {
 	godMode = !godMode;
-	[godMode] execVM "admintools\tools\GodModePlayer.sqf";
+	[godMode] execVM "admintools\tools\AdminMode\GodModePlayer.sqf";
 };
 carGodModeToggle = {
 	carGodMode = !carGodMode;
-	[carGodMode] execVM "admintools\tools\GodModeVehicle.sqf";
+	[carGodMode] execVM "admintools\tools\AdminMode\GodModeVehicle.sqf";
 };
 playerESPToggle = {
 	playerESP = !playerESP;
-	[playerESP] execVM "admintools\tools\ESPplayer.sqf";
+	[playerESP] execVM "admintools\tools\AdminMode\ESPplayer.sqf";
 };
 grassOffToggle = {
 	grassOff = !grassOff;
-	[grassOff] execVM "admintools\tools\GrassOFF.sqf";
+	[grassOff] execVM "admintools\tools\AdminMode\GrassOFF.sqf";
 };
 invisibilityToggle = {
 	invisibility = !invisibility;
-	[invisibility] execVM "admintools\tools\Invisibility.sqf";
+	[invisibility] execVM "admintools\tools\AdminMode\Invisibility.sqf";
 };
 
 // To disable an option for mods place a // in the front of the line below
@@ -54,24 +54,23 @@ optionMenu =
 
 modToggleON =
 {
-	if (playerESP) then {[playerESP] execVM "admintools\tools\ESPplayer.sqf";};
-	if (invisibility) then {[invisibility] execVM "admintools\tools\Invisibility.sqf";};
-	if (godMode) then {[godMode] execVM "admintools\tools\GodModePlayer.sqf";};
-	if (carGodMode) then {[carGodMode] execVM "admintools\tools\GodModeVehicle.sqf";};
-	if (grassOff) then {[grassOff] execVM "admintools\tools\GrassOFF.sqf";};
+	if (playerESP) then {[playerESP] execVM "admintools\tools\AdminMode\ESPplayer.sqf";};
+	if (invisibility) then {[invisibility] execVM "admintools\tools\AdminMode\Invisibility.sqf";};
+	if (godMode) then {[godMode] execVM "admintools\tools\AdminMode\GodModePlayer.sqf";};
+	if (carGodMode) then {[carGodMode] execVM "admintools\tools\AdminMode\GodModeVehicle.sqf";};
+	if (grassOff) then {[grassOff] execVM "admintools\tools\AdminMode\GrassOFF.sqf";};
 };
 
 modToggleOFF =
 {
-	if (playerESP) then {[!playerESP] execVM "admintools\tools\ESPplayer.sqf";};
-	if (invisibility) then {[!invisibility] execVM "admintools\tools\Invisibility.sqf";};
-	if (godMode) then {[!godMode] execVM "admintools\tools\GodModePlayer.sqf";};
-	if (carGodMode) then {[!carGodMode] execVM "admintools\tools\GodModeVehicle.sqf";};
-	if (grassOff) then {[!grassOff] execVM "admintools\tools\GrassOFF.sqf";};
+	if (playerESP) then {[!playerESP] execVM "admintools\tools\AdminMode\ESPplayer.sqf";};
+	if (invisibility) then {[!invisibility] execVM "admintools\tools\AdminMode\Invisibility.sqf";};
+	if (godMode) then {[!godMode] execVM "admintools\tools\AdminMode\GodModePlayer.sqf";};
+	if (carGodMode) then {[!carGodMode] execVM "admintools\tools\AdminMode\GodModeVehicle.sqf";};
+	if (grassOff) then {[!grassOff] execVM "admintools\tools\AdminMode\GrassOFF.sqf";};
 };
 
 if(modMode) then {
-	cutText ["God Mode, Vehicle God Mode, ESP, Inf Ammo, and Grass OFF - ENABLED","PLAIN DOWN"];titleFadeOut 4;
 	titleText ["***Press F4 to toggle Mod-Mode options***","PLAIN"];titleFadeOut 5;
 	F4_KEY = (findDisplay 46) displayAddEventHandler ["KeyDown","if ((_this select 1) == 62) then {call optionMenu;};"];
 	call modToggleON;
